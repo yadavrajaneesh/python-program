@@ -1,0 +1,16 @@
+name = inpute("enter your name:")
+hindi = int(input("enter your hindi number:"))
+math = int(input("enter your math number:"))
+english= int(input("enter your english number:"))
+physics = int(input("enter your physics number:"))
+chemistry = int(input("enter your chemestry number:"))
+total = hindi+english+math+physics+chemistry
+per = total*100/500
+print("name:",name)
+print("hindi:",hindi)
+print("math:",math)
+print("english:",english)
+print("physics:",physics)
+print("chemistry:",chemistry)
+print("total:",total)
+print("percentage:",per)
