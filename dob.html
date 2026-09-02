@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>Age Calculator</title>
+    <a rel="stylesheet" href="cascading.css"></a>
+    <style>
+/* input[type="text"]{
+    background-color: brown; 
+    border: 1px solid lightblue;
+    padding: 10px;
+    border-radius: 16px;
+    font-size: 18px;
+}
+level{
+    color:red;
+    font-size: large;
+}
+p{
+    color: blue;
+    font-size: xx-large;
+    background-color: black;
+}
+body{
+    background-color: brown;
+} */
+
+input[type ="button"]{
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    color:white;
+    border:"3px";
+    border-color: black;
+    border-top-left-radius: 5px;
+    size: 40px;
+}
+input[type = "text"]{
+    background-color: rgb(144, 141, 141);
+    border-radius: 5px;
+    size: 40px;
+}
+table{
+    border: 4px;
+}
+    </style>
+</head>
+<body>
+    <!-- <h2>Age Calculator</h2>
+    <label>Enter Date of Birth:</label>
+    <input type="date" id="dob">
+    <button onclick="calculateAge()">Calculate Age</button>
+    <h3 id="result"></h3>
+    <script>
+        function calculateAge() {
+            let dob = new Date(document.getElementById("dob").value);
+            let today = new Date();
+            let age = today.getFullYear() - dob.getFullYear();
+            let month = today.getMonth() - dob.getMonth();
+            // Agar birthday abhi nahi aaya hai
+            if (month < 0 || (month === 0 && today.getDate() < dob.getDate())) {
+                age--;
+            }
+            document.getElementById("result").innerHTML =
+                "Your Age is: " + age + " years";
+        }
+    </script> -->
+    <!-- <h1>Studen result</h1>
+     <level>hindi</level>:<input type="text" id="h1" size="1px">
+     <level>maths</math></level>:<input type="text" id="m1" size="1px">
+     <level>english</level>:<input type="text" id="e1" size="1px">
+     <level>physics</level>:<input type="text" id="p1" size="1px">
+     <level>chemistry</level>:<input type="text" id="ch1" size="1px">
+     <input type="button" id="btn" value="Result" onclick="result()">  
+     <input type="button" value="clear" onclick="clr()">
+     <p id="total"></p>
+     <p id="percentage"></p>
+     <p id ="grade"></p>
+      -->
+<h1>calculater program</h1>
+<table>
+<tr>
+<th colspan="3"><input type="text" id="a">
+<th><input type="button" value="AC" onclick="clr()">
+</tr><br>
+<tr>
+<th><input type="button" value="7" onclick="pick(7)">
+<th><input type="button" value="8" onclick="pick(8)">
+<th><input type="button" value="9" onclick="pick(9)">
+<th><input type="button" value="+" onclick="pick('+')">
+</tr><br>
+<tr>
+<th><input type="button" value="4" onclick="pick(4)">
+<th><input type="button" value="5" onclick="pick(5)">
+<th><input type="button" value="6" onclick="pick(6)">
+<th><input type="button" value="-" onclick="pick('-')">
+</tr><br>
+<tr>
+<th><input type="button" value="3" onclick="pick(3)">
+<th><input type="button" value="2" onclick="pick(2)">
+<th><input type="button" value="1" onclick="pick(1)">
+<th><input type="button" value="*" onclick="pick('*')">
+</tr><br>
+<tr>
+<th><input type="button" value="0" onclick="pick(0)">
+<th><input type="button" value="." onclick="pick('.')">
+<th><input type="button" value="/" onclick="pick('/')">
+<th><input type="button" value="=" onclick="add()">
+</tr><br>
+
+</table>
+</body>
+</html>
+    <script src="java.js"></script>
+</body>
+</html> 
