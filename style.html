@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date of Birth Calculator</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            width: 350px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 15px 0;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        #result {
+            margin-top: 20px;
+            line-height: 1.8;
+            color: #222;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Date of Birth Calculator</h2>
+
+        <label>Select your Date of Birth:</label>
+
+        <input type="date" id="dob">
+
+        <br>
+
+        <button onclick="calculateAge()">Calculate Age</button>
+
+        <div id="result"></div>
+    </div>
+
+
+    <script>
+
+        function calculateAge() {
+
+            // DOB input se lena
+            let dobInput = document.getElementById("dob").value;
+
+            // Agar DOB select nahi kiya
+            if (dobInput === "") {
+                document.getElementById("result").innerHTML =
+                    "<p style='color:red;'>Please select your Date of Birth.</p>";
+                return;
+            }
+
+            // DOB ko Date object me convert karna
+            let dob = new Date(dobInput);
+
+            // Aaj ki date
+            let today = new Date();
+
+            // Future date check
+            if (dob > today) {
+                document.getElementById("result").innerHTML =
+                    "<p style='color:red;'>Date of Birth future ki nahi ho sakti.</p>";
+                return;
+            }
+
+            // Age calculate karna
+            let years = today.getFullYear() - dob.getFullYear();
+
+            let months = today.getMonth() - dob.getMonth();
+
+            let days = today.getDate() - dob.getDate();
+
+
+            // Agar days negative hain
+            if (days < 0) {
+
+                months--;
+
+                // Previous month ke total days
+                let previousMonth = new Date(
+                    today.getFullYear(),
+                    today.getMonth(),
+                    0
+                ).getDate();
+
+                days = days + previousMonth;
+            }
+
+
+            // Agar months negative hain
+            if (months < 0) {
+                years--;
+                months = months + 12;
+            }
+
+
+            // Total days calculate karna
+            let difference = today.getTime() - dob.getTime();
+
+            let totalDays = Math.floor(
+                difference / (1000 * 60 * 60 * 24)
+            );
+
+
+            // Next birthday calculate karna
+            let nextBirthday = new Date(
+                today.getFullYear(),
+                dob.getMonth(),
+                dob.getDate()
+            );
+
+
+            // Agar birthday is saal ho chuka hai
+            if (nextBirthday < today) {
+                nextBirthday.setFullYear(
+                    today.getFullYear() + 1
+                );
+            }
+
+
+            // Next birthday tak days
+            let birthdayDifference =
+                nextBirthday.getTime() - today.getTime();
+
+            let daysUntilBirthday = Math.ceil(
+                birthdayDifference /
+                (1000 * 60 * 60 * 24)
+            );
+
+
+            // Result display
+            document.getElementById("result").innerHTML = `
+                <h3>Your Age</h3>
+
+                <p>
+                    <strong>${years}</strong> Years,
+                    <strong>${months}</strong> Months,
+                    <strong>${days}</strong> Days
+                </p>
+
+                <p>
+                    Total Days:
+                    <strong>${totalDays}</strong>
+                </p>
+
+                <p>
+                    Next Birthday:
+                    <strong>${daysUntilBirthday} days</strong>
+                    remaining
+                </p>
+            `;
+        }
+
+    </script>
+
+</body>
+</html>
